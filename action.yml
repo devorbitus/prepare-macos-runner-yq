@@ -1,5 +1,13 @@
 name: 'yq macOS runner installer'
-description: 'Install yq onto a GitHub hosted macOS runner'
+description: 'Install yq onto a GitHub hosted macOS runner and run a command'
+inputs:
+  cmd:
+    description: 'The command which should be run'
+    required: true
+outputs:
+  result:
+    description: "The complete result from the yq command being run"
+    value: cat ${{ github.action_path }}/.result
 runs:
   using: composite
   steps:
