@@ -11,7 +11,7 @@ outputs:
 runs:
   using: composite
   steps:
-    - run: ${{ github.action_path }}/install.sh
+    - run: ${{ github.action_path }}/install.sh ${{ steps.yq.inputs.cmd }}
       id: yq
       shell: bash
 branding:
