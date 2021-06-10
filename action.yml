@@ -7,11 +7,12 @@ inputs:
 outputs:
   result:
     description: "The complete result from the yq command being run"
-    value: ${{ env.yqresult }}
+    value: ${{ steps.yq.outputs.result }}
 runs:
   using: composite
   steps:
     - run: ${{ github.action_path }}/install.sh
+      id: yq
       shell: bash
 branding:
   color: blue
